@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Smartbook - AudioBook</title>
+  <link rel="stylesheet" href="plyr.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <img src="ID-0-89-Couverture.jpg" alt="Couverture" style="width: 20%; height: auto; margin-bottom: 20px;">
+
+  <div class="logos">
+    <img src="PLANCHE-1a.jpg" alt="Logo AudioBook" style="width: 5%; height: auto; margin-bottom: 20px;">
+    <img src="Logo_resized.jpg" alt="Logo Encyclo-AI" style="width: 10%; height: auto; margin-bottom: 20px;">
+  </div>
+
+<!-- Bloc bouton Play + potentiomètre vitesse -->
+<div class="player-controls">
+  <!-- Gros bouton Play -->
+  <button id="bigPlayBtn" aria-label="Lire ou mettre en pause le livre audio">▶</button>
+
+  <!-- Bloc vitesse -->
+  <div id="speedControl">
+    <div class="speed-label">Vitesse</div>
+    <div class="speed-knob-wrapper">
+      <input type="range" id="speedKnob" min="0.9" max="1.1" step="0.05" value="1" orient="vertical">
+
+      <!-- Colonne repères alignés -->
+      <div id="speedLabels">
+        <span>++</span>
+        <span>+</span>
+        <span>=</span>
+        <span>-</span>
+        <span>--</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Lecteur audio -->
+  <audio id="audioPlayer" controls></audio>
+
+  <!-- Playlist -->
+  <ul id="playlist">
+    <li><a href="Introduction.mp3" style="font-weight: bold;">INTRODUCTION - LES MONDES DYSTOPIQUES : UN MIROIR DE NOS SOCIÉTÉS</a></li>
+
+    <li style="font-weight: bold;">Chapitre 1 - DÉFINITION ET CARACTÉRISTIQUES DES DYSTOPIES</li>
+    <ul>
+      <li><a href="Chapitre1-1.mp3">1.1 - Origines et définition du genre dystopique</a></li>
+      <li><a href="Chapitre1-2.mp3">1.2 - Les éléments constitutifs d'une dystopie</a></li>
+      <li><a href="Chapitre1-3.mp3">1.3 - Les fonctions sociales et critiques des dystopies</a></li>
+    </ul>
+
+    <li style="font-weight: bold;">Chapitre 2 - HISTOIRE DES DYSTOPIES : DES ORIGINES À NOS JOURS</li>
+    <ul>
+      <li><a href="Chapitre2-1.mp3">2.1 - Les premières œuvres dystopiques</a></li>
+      <li><a href="Chapitre2-2.mp3">2.2 - L'émergence du genre au XXe siècle</a></li>
+      <li><a href="Chapitre2-3.mp3">2.3 - Les évolutions contemporaines du genre</a></li>
+    </ul>
+
+    <li style="font-weight: bold;">Chapitre 3 - ANALYSE DES ŒUVRES MAJEURES : ORWELL, HUXLEY ET ATWOOD</li>
+    <ul>
+      <li><a href="Chapitre3-1.mp3">3.1 - '1984' de George Orwell</a></li>
+      <li><a href="Chapitre3-2.mp3">3.2 - 'Le Meilleur des Mondes' d'Aldous Huxley</a></li>
+      <li><a href="Chapitre3-3.mp3">3.3 - 'La Servante écarlate' de Margaret Atwood</a></li>
+    </ul>
+
+    <li style="font-weight: bold;">Chapitre 4 - LES SOUS-GENRES DE LA DYSTOPIE : POLITIQUE, TECHNOLOGIQUE, ÉCOLOGIQUE ET POST-APOCALYPTIQUE</li>
+    <ul>
+      <li><a href="Chapitre4-1.mp3">4.1 - Les dystopies politiques</a></li>
+      <li><a href="Chapitre4-2.mp3">4.2 - Les dystopies technologiques</a></li>
+      <li><a href="Chapitre4-3.mp3">4.3 - Les dystopies écologiques et post-apocalyptiques</a></li>
+    </ul>
+
+    <li style="font-weight: bold;">Chapitre 5 - LA DYSTOPIE DANS LE CINÉMA ET LES SÉRIES TÉLÉVISÉES</li>
+    <ul>
+      <li><a href="Chapitre5-1.mp3">5.1 - Les adaptations cinématographiques des œuvres dystopiques</a></li>
+      <li><a href="Chapitre5-2.mp3">5.2 - Les séries télévisées dystopiques</a></li>
+      <li><a href="Chapitre5-3.mp3">5.3 - L'impact visuel et narratif des médias audiovisuels</a></li>
+    </ul>
+
+    <li style="font-weight: bold;">Chapitre 6 - IMPACT DES DYSTOPIES SUR LA CONSCIENCE SOCIALE ET POLITIQUE</li>
+    <ul>
+      <li><a href="Chapitre6-1.mp3">6.1 - Les dystopies comme outils de réflexion critique</a></li>
+      <li><a href="Chapitre6-2.mp3">6.2 - Les débats suscités par les œuvres dystopiques</a></li>
+      <li><a href="Chapitre6-3.mp3">6.3 - L'influence des dystopies sur les mouvements sociaux</a></li>
+    </ul>
+
+    <li style="font-weight: bold;">Chapitre 7 - LES DYSTOPIES CONTEMPORAINES ET LES ENJEUX ACTUELS</li>
+    <ul>
+      <li><a href="Chapitre7-1.mp3">7.1 - Les thèmes émergents dans les dystopies modernes</a></li>
+      <li><a href="Chapitre7-2.mp3">7.2 - Les auteurs contemporains de dystopies</a></li>
+      <li><a href="Chapitre7-3.mp3">7.3 - Les perspectives futures du genre dystopique</a></li>
+    </ul>
+
+    <li style="font-weight: bold;">Chapitre 8 - COMPARAISON ENTRE DYSTOPIE ET UTOPIE : RÉFLEXIONS CRITIQUES</li>
+    <ul>
+      <li><a href="Chapitre8-1.mp3">8.1 - Les différences fondamentales entre dystopie et utopie</a></li>
+      <li><a href="Chapitre8-2.mp3">8.2 - Les œuvres qui combinent dystopie et utopie</a></li>
+      <li><a href="Chapitre8-3.mp3">8.3 - Les leçons à tirer des dystopies et des utopies</a></li>
+    </ul>
+
+    <li><a href="Conclusion.mp3" style="font-weight: bold;">CONCLUSION - VERS UN AVENIR ÉCLAIRÉ PAR LES LEÇONS DES DYSTOPIES</a></li>
+  </ul>
+
+  <p><a href="ID-0-89-Annexes.pdf" target="_blank">📄 Consulter les annexes du livre</a></p>
+  <p><a href="mentions_legales.pdf">Mentions légales</a></p>
+
+  <script src="plyr.polyfilled.js"></script>
+  <script src="lecteur.js"></script>
+</body>
+</html>

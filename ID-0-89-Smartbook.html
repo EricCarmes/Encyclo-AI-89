@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Smartbook - AudioBook</title>
+
+  <!-- ✅ PWA : ajout du manifest -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="logo-icon-192.png">
+
+  <style>
+    body {
+      background-color: #f9f9f9;
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 30px;
+    }
+    .cover {
+      margin-top: 30px;
+      max-width: 400px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border-radius: 10px;
+    }
+    .logos {
+      display: flex;
+      gap: 30px;
+      margin-top: 20px;
+      align-items: center;
+      justify-content: center;
+    }
+    .logos img {
+      max-width: 200px;
+      height: auto;
+    }
+    .button-container {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+    }
+    .button-container a,
+    .button-container button {
+      text-decoration: none;
+      padding: 12px 24px;
+      background-color: #004080;
+      color: white;
+      border-radius: 5px;
+      font-size: 1.1em;
+      transition: background-color 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+    .button-container a:hover,
+    .button-container button:hover {
+      background-color: #0055aa;
+    }
+    #installButton { display: none; }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <img src="ID-0-89-Couverture.jpg" alt="Couverture AudioBook" class="cover">
+  </div>
+
+  <div class="logos">
+    <img src="PLANCHE-1a.jpg" alt="Logo AudioBook" style="width: 20%; height: auto; margin-bottom: 20px;">
+    <img src="Logo_resized.jpg" alt="Logo Encyclo-AI" style="width: 100%; height: auto; margin-bottom: 20px;">
+  </div>
+
+  <div class="button-container">
+    <a href="Lecteur_ID-0-89.html">Accéder à l'écoute du livre audio</a>
+    <button id="installButton">📲 Installer cette application</button>
+  </div>
+
+  <!-- ✅ Enregistrement du service worker et gestion installation -->
+  <script>
+    // Service Worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(reg => console.log("✅ Service worker enregistré :", reg.scope))
+          .catch(err => console.error("❌ Échec de l'enregistrement :", err));
+      });
+    }
+
+    // Gestion du bouton Installer
+    let deferredPrompt;
+    const installButton = document.querySelector("#installButton");
+
+    window.addEventListener("beforeinstallprompt", (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      installButton.style.display = "block";
+
+      installButton.addEventListener("click", () => {
+        installButton.style.display = "none";
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+          if (choiceResult.outcome === "accepted") {
+            console.log("✅ Appli installée");
+          } else {
+            console.log("❌ Installation refusée");
+          }
+          deferredPrompt = null;
+        });
+      });
+    });
+
+    // Masquer le bouton si déjà en standalone
+    if (window.matchMedia('(display-mode: standalone)').matches) {
+      installButton.style.display = "none";
+    }
+  </script>
+
+</body>
+</html>
